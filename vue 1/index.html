@@ -29,7 +29,7 @@
 
       <button @click="toggleBox">toggle</button>
 
-      <div v-if="isVisible" class="box"></div>
+      <test-box v-if="isVisible"></div>
 
       <hr>
       <login-form></login-form>
@@ -56,6 +56,9 @@
           greet(greeting) {
             console.log(greeting)
           }
+        },
+        updated() {
+          console.log('updated')
         }
       })
       app.component('login-form', {
@@ -130,6 +133,21 @@
         //     inputValue: ''
         //   }
         // }
+      })
+
+      app.component('test-box', {
+        template: `
+        <div class="box"></div>
+        `,
+        created() {
+          console.log('create')
+        },
+        mounted() {
+          console.log('mounted')
+        },
+        unmounted() {
+          console.log('unmounted')
+        }
       })
 
       app.mount('#app')
