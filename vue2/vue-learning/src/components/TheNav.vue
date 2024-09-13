@@ -1,17 +1,10 @@
 <script setup>
-import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
-import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS } from '../constants'
+import { navItems } from '@/constants'
 import NavItem from './NavItem.vue'
 
 defineProps(['currentPage'])
 
 const emit = defineEmits(['navigate'])
-
-const navItems = {
-  [PAGE_TIMELINE]: ClockIcon,
-  [PAGE_ACTIVITIES]: ListBulletIcon,
-  [PAGE_PROGRESS]: ChartBarIcon
-}
 </script>
 
 <template>
