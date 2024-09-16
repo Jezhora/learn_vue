@@ -1,11 +1,14 @@
 <script setup>
-import { navItems } from '@/constants'
+import { NAV_ITEMS } from '@/constants'
 import NavItem from './NavItem.vue'
 
 defineProps({
   currentPage: {
     required: true,
-    type: String
+    type: String,
+    validator(currentPage) {
+      return Object.keys(NAV_ITEMS).includes(currentPage)
+    }
   }
 })
 
@@ -16,7 +19,7 @@ const emit = defineEmits(['navigate'])
   <nav class="sticky bottom-0 z-10 bg-white">
     <ul class="flex justify-around items-center border-t">
       <NavItem
-        v-for="(icon, page) in navItems"
+        v-for="(icon, page) in NAV_ITEMS"
         :key="page"
         :href="`#${page}`"
         :class="{ 'bg-gray-200 pointer-events-none': page === currentPage }"

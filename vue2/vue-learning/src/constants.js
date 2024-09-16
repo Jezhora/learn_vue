@@ -6,7 +6,7 @@ export const PAGE_PROGRESS = 'progress'
 
 export const HOURS_IN_DAY = 24
 
-export const navItems = {
+export const NAV_ITEMS = {
   [PAGE_TIMELINE]: ClockIcon,
   [PAGE_ACTIVITIES]: ListBulletIcon,
   [PAGE_PROGRESS]: ChartBarIcon
