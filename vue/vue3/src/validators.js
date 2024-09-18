@@ -3,6 +3,9 @@ import { HOURS_IN_DAY, MIDNIGHT_OUR, NAV_ITEMS } from './constants'
 export function isPageValid(page) {
   return Object.keys(NAV_ITEMS).includes(page)
 }
+export function isHourValid(hour) {
+  return isNumber(hour) && isBetween(hour, MIDNIGHT_OUR, HOURS_IN_DAY - 1)
+}
 
 export function isTimelineItemValid({ hour }) {
   return isHourValid(hour)
@@ -42,10 +45,6 @@ function isNumber(value) {
 
 function isString(value) {
   return typeof value === 'string'
-}
-
-function isHourValid(hour) {
-  return isNumber(hour) && isBetween(hour, MIDNIGHT_OUR, HOURS_IN_DAY - 1)
 }
 
 function isBetween(value, start, end) {
