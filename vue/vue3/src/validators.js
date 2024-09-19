@@ -1,8 +1,13 @@
-import { HOURS_IN_DAY, MIDNIGHT_OUR, NAV_ITEMS } from './constants'
+import { BUTTON_TYPES, HOURS_IN_DAY, MIDNIGHT_OUR, NAV_ITEMS } from './constants'
 
 export function isPageValid(page) {
   return Object.keys(NAV_ITEMS).includes(page)
 }
+
+export function isButtonTypeValid(type) {
+  return BUTTON_TYPES.includes(type)
+}
+
 export function isHourValid(hour) {
   return isNumber(hour) && isBetween(hour, MIDNIGHT_OUR, HOURS_IN_DAY - 1)
 }
@@ -49,4 +54,16 @@ function isString(value) {
 
 function isBetween(value, start, end) {
   return value >= start && value <= end
+}
+
+export function isActivityValid(activity) {
+  return isNotEmptyString(activity)
+}
+
+function isNotEmptyString(value) {
+  return isString(value) && value.length > 0
+}
+
+export function validateActivities(activities) {
+  return activities.every(isActivityValid)
 }
