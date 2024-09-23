@@ -29,14 +29,14 @@ export function validateTimeLineItems(timelineItems) {
 }
 
 export function isUndefinedOrNull(value) {
-  return isUndefind(value) || isNull(value)
+  return isUndefinded(value) || isNull(value)
 }
 
 export function isNumberOrNull(value) {
   return isNumber(value) || isNull(value)
 }
 
-function isUndefind(value) {
+export function isUndefinded(value) {
   return value === undefined
 }
 
